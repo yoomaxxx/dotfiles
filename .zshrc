@@ -1,3 +1,4 @@
+#!/bin/zsh
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
@@ -9,7 +10,7 @@ plugins=(
   tmux zsh-autosuggestions uv zsh-vi-mode
 )
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 export DOCKER_HOST=unix:///run/user/1000//docker.sock
 export VISUAL="nvim"
 export EDITOR="nvim"
@@ -18,25 +19,25 @@ export BAT_THEME="ansi"
 export GALLIUM_DRIVER="d3d12"
 
 path=(
-  $HOME/.local/share/nvim/mason/bin
-  $HOME/.local/bin
-  $HOME/.cargo/bin
-  $HOME/bin
-  $HOME/.npm/bin
-  $path
-  /usr/local/cuda-13/bin
-  $HOME/lib/
-  $HOME/go/bin
+  "$HOME/.local/share/nvim/mason/bin"
+  "$HOME/.local/bin"
+  "$HOME/.cargo/bin"
+  "$HOME/bin"
+  "$HOME/.npm/bin"
+  "$path"
+  "/usr/local/cuda-13/bin"
+  "$HOME/lib/"
+  "$HOME/go/bin"
 )
 
 export PATH
 
 # fzf
 
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"\
-" --color=bg+:#3c3836,bg:#282828,spinner:#689d6a,hl:#458588"\
-" --color=fg:#928374,header:#458588,info:#d79921,pointer:#689d6a"\
-" --color=marker:#689d6a,fg+:#fbf1c7,prompt:#d79921,hl+:#458588"
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS""\
+ --color=bg+:#3c3836,bg:#282828,spinner:#689d6a,hl:#458588""\
+ --color=fg:#928374,header:#458588,info:#d79921,pointer:#689d6a""\
+ --color=marker:#689d6a,fg+:#fbf1c7,prompt:#d79921,hl+:#458588"
 
 # wsl
 
@@ -79,15 +80,15 @@ export PATH="/home/maksim/.aisessions/bin:$PATH"
 # zellij
 
 zellij_tab_name_update() {
-    if [[ -n $ZELLIJ ]]; then
-        local current_dir=$PWD
-        if [[ $current_dir == $HOME ]]; then
-            current_dir="~"
-        else
-            current_dir=${current_dir##*/}
-        fi
-        command nohup zellij action rename-tab $current_dir >/dev/null 2>&1
+  if [[ -n $ZELLIJ ]]; then
+    local current_dir=$PWD
+    if [[ $current_dir == "$HOME" ]]; then
+      current_dir="~"
+    else
+      current_dir=${current_dir##*/}
     fi
+    command nohup zellij action rename-tab "$current_dir" >/dev/null 2>&1
+  fi
 }
 
 zellij_tab_name_update
