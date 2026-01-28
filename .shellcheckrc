@@ -1,0 +1,21 @@
+# shellcheck shell=bash
+# shellcheck disable=SC1090,SC1091,SC2034,SC2148,SC2154,SC2155,SC2296,SC2299,SC2317
+
+# This file contains ZSH-specific configurations that may not be fully compatible
+# with shellcheck's Bash analysis. The following disables are explained:
+#
+# SC1090: Can't follow non-constant source (dynamic sourcing like nvm, zoxide)
+# SC1091: Not following sourced file (oh-my-zsh, completion scripts)
+# SC2034: Variable appears unused (ZSH-specific variables and theme settings)
+# SC2148: Shebang not found (this is sourced, not executable)
+# SC2154: Variable is referenced but not assigned (ZSH provides these)
+# SC2155: Declare and assign separately (common in exports)
+# SC2296: Parameter expansion can't be parsed (ZSH-specific syntax)
+# SC2299: Array expansion may be unsupported (ZSH array syntax)
+# SC2317: Command appears to be unreachable (hook functions)
+
+# Add these directives to the top of .zshrc or create .shellcheckrc in your home directory
+# To run shellcheck on .zshrc: shellcheck -x ~/.zshrc
+
+# Recommended shellcheck command for .zshrc:
+# shellcheck -x --enable=all --severity=style ~/.zshrc
