@@ -6,7 +6,7 @@ zstyle ':omz:update' mode reminder
 
 plugins=(
   git fzf gh docker docker-compose pip python node nvm
-  tmux zsh-autosuggestions uv zsh-vi-mode
+  zsh-autosuggestions uv zsh-vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -33,10 +33,10 @@ export PATH
 
 # fzf
 
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"\
-" --color=bg+:#3c3836,bg:#282828,spinner:#689d6a,hl:#458588"\
-" --color=fg:#928374,header:#458588,info:#d79921,pointer:#689d6a"\
-" --color=marker:#689d6a,fg+:#fbf1c7,prompt:#d79921,hl+:#458588"
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS""\
+ --color=bg+:#3c3836,bg:#282828,spinner:#689d6a,hl:#458588""\
+ --color=fg:#928374,header:#458588,info:#d79921,pointer:#689d6a""\
+ --color=marker:#689d6a,fg+:#fbf1c7,prompt:#d79921,hl+:#458588"
 
 # wsl
 
@@ -79,15 +79,15 @@ export PATH="/home/maksim/.aisessions/bin:$PATH"
 # zellij
 
 zellij_tab_name_update() {
-    if [[ -n $ZELLIJ ]]; then
-        local current_dir=$PWD
-        if [[ $current_dir == $HOME ]]; then
-            current_dir="~"
-        else
-            current_dir=${current_dir##*/}
-        fi
-        command nohup zellij action rename-tab $current_dir >/dev/null 2>&1
+  if [[ -n $ZELLIJ ]]; then
+    local current_dir=$PWD
+    if [[ $current_dir == $HOME ]]; then
+      current_dir="~"
+    else
+      current_dir=${current_dir##*/}
     fi
+    command nohup zellij action rename-tab $current_dir >/dev/null 2>&1
+  fi
 }
 
 zellij_tab_name_update
