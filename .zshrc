@@ -10,12 +10,16 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
 export DOCKER_HOST=unix:///run/user/1000//docker.sock
 export VISUAL="nvim"
 export EDITOR="nvim"
 export PAGER="less -R"
 export BAT_THEME="ansi"
 export GALLIUM_DRIVER="d3d12"
+export RUBY_DEBUG_OPEN=true
+export RUBY_DEBUG_HOST=127.0.0.1
+export RUBY_DEBUG_PORT=38698
 
 path=(
   $HOME/.local/share/nvim/mason/bin
