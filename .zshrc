@@ -17,9 +17,6 @@ export EDITOR="nvim"
 export PAGER="less -R"
 export BAT_THEME="ansi"
 export GALLIUM_DRIVER="d3d12"
-export RUBY_DEBUG_OPEN=true
-export RUBY_DEBUG_HOST=127.0.0.1
-export RUBY_DEBUG_PORT=38698
 
 path=(
   $HOME/.local/share/nvim/mason/bin
@@ -80,23 +77,6 @@ export OPENCODE_CONFIG="$HOME/.config/opencode/opencode.json"
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-13.1/lib64
 export PATH="/home/maksim/.aisessions/bin:$PATH"
 
-# zellij
-
-zellij_tab_name_update() {
-  if [[ -n $ZELLIJ ]]; then
-    local current_dir=$PWD
-    if [[ $current_dir == $HOME ]]; then
-      current_dir="~"
-    else
-      current_dir=${current_dir##*/}
-    fi
-    command nohup zellij action rename-tab $current_dir >/dev/null 2>&1
-  fi
-}
-
-zellij_tab_name_update
-chpwd_functions+=(zellij_tab_name_update)
-
 # bun completions
 [ -s "/home/maksim/.bun/_bun" ] && source "/home/maksim/.bun/_bun"
 
@@ -105,4 +85,3 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval "$(/home/maksim/.local/bin/mise activate zsh)"
