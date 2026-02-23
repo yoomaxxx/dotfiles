@@ -5,9 +5,13 @@ ZSH_THEME="robbyrussell"
 zstyle ':omz:update' mode reminder
 
 plugins=(
-  git fzf gh docker docker-compose pip python node nvm
-  zsh-autosuggestions uv zsh-vi-mode
+  git fzf gh docker docker-compose doctl emoji extract git-auto-fetch git-commit
+  git-extras gitfast gitignore github pip python node nvm
+  zsh-autosuggestions uv zsh-vi-mode tmux branch bun celery colored-man-pages
+  colorize copybuffer copyfile copypath dirpersist zoxide zellij-tabula dirpersist
 )
+
+export ZSH_TMUX_AUTOSTART=true
 
 source $ZSH/oh-my-zsh.sh
 
@@ -34,10 +38,11 @@ export PATH
 
 # fzf
 
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS""\
- --color=bg+:#3c3836,bg:#282828,spinner:#689d6a,hl:#458588""\
- --color=fg:#928374,header:#458588,info:#d79921,pointer:#689d6a""\
- --color=marker:#689d6a,fg+:#fbf1c7,prompt:#d79921,hl+:#458588"
+export FZF_DEFAULT_OPTS="
+  --color=bg+:#ebdbb2,bg:#fbf1c7,spinner:#8ec07c,hl:#83a598
+  --color=fg:#3c3836,header:#83a598,info:#fabd2f,pointer:#8ec07c
+  --color=marker:#8ec07c,fg+:#504945,prompt:#fabd2f,hl+:#83a598
+"
 
 # wsl
 
