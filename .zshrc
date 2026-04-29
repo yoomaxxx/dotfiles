@@ -7,11 +7,9 @@ zstyle ':omz:update' mode reminder
 plugins=(
   git fzf gh docker docker-compose doctl emoji extract git-auto-fetch git-commit
   git-extras gitfast gitignore github pip python node nvm
-  zsh-autosuggestions uv zsh-vi-mode tmux branch bun celery colored-man-pages
-  colorize copybuffer copyfile copypath dirpersist zoxide zellij-tabula dirpersist
+  zsh-autosuggestions uv zsh-vi-mode branch bun celery colored-man-pages
+  colorize copybuffer copyfile copypath dirpersist zoxide dirpersist zellij-tabula
 )
-
-export ZSH_TMUX_AUTOSTART=true
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,3 +88,4 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(/home/maksim/.local/bin/mise activate zsh)"
