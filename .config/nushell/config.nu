@@ -32,6 +32,11 @@ if ('~/.cache/mise/activate.nu' | path exists) {
 
 alias bat = batcat
 
+# Truecolor 
+
+$env.COLORTERM = "truecolor"
+
+
 # Vi mode
 
 $env.config.edit_mode = 'vi'
@@ -41,6 +46,10 @@ $env.config.edit_mode = 'vi'
 source ~/.config/zellij/zellij-tabula.nu
 
 # zoxide
+
+if '__zoxide_hooked' in ($env | columns) {
+  $env.__zoxide_hooked = ($env.__zoxide_hooked | into bool)
+}
 
 source ~/.zoxide.nu
 
